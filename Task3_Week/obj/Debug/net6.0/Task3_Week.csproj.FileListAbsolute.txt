@@ -1,0 +1,15 @@
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\bin\Debug\net6.0\Task3_Week.exe
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\bin\Debug\net6.0\Task3_Week.deps.json
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\bin\Debug\net6.0\Task3_Week.runtimeconfig.json
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\bin\Debug\net6.0\Task3_Week.dll
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\bin\Debug\net6.0\Task3_Week.pdb
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.csproj.AssemblyReference.cache
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.AssemblyInfoInputs.cache
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.AssemblyInfo.cs
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.csproj.CoreCompileInputs.cache
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.dll
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\refint\Task3_Week.dll
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.pdb
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\Task3_Week.genruntimeconfig.cache
+C:\Users\wwww\Desktop\Учеба\С# семинары\dz1\Task3_Week\obj\Debug\net6.0\ref\Task3_Week.dll

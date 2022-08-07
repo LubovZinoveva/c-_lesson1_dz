@@ -1,11 +1,9 @@
 ﻿Console.Write("Введите число: ");
 int numberN = int.Parse(Console.ReadLine());
-int i = 2;
 String result = "";
-while (i <= numberN)
+for (int index = 2; index <= numberN; index += 2)
 {
-    result += Convert.ToString(i);
+    result += Convert.ToString(index);
     result += " ";
-    i += 2;
 }
 Console. Write(result);

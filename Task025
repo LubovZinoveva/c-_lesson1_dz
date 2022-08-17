@@ -1,0 +1,28 @@
+/* Напишите цикл, который принимает на вход два числа (А и B) и возводит А в натуральную степень В.
+3, 5 -> 243 (3^5);
+2, 4 -> 16 (2^4)
+*/
+
+Console.WriteLine("Введите два числа: ");
+int A = int.Parse(Console.ReadLine());
+int B = int.Parse(Console.ReadLine());
+
+int NumberExponentiation(int num, int degree)
+{
+    int result = num;
+    for(int i = 1; i < degree; i++)
+    {
+        result *= num; 
+    }
+    return result;
+}
+
+// Проверим число В на натуральность (В = 1, 2, 3, 4....)
+if(B < 1)
+{
+    Console.Write("Ошибка, введено не натуральное второе число");
+}
+else
+{
+    Console.WriteLine(NumberExponentiation(A, B));
+}

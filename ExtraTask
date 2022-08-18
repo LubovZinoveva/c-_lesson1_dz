@@ -1,0 +1,41 @@
+// Напишите функцию, которая принимает одно число - высоту елочки и рисует ее в консоли звездочками.
+
+Console.Write("Задайте высоту елеочки: ");
+int number = int.Parse(Console.ReadLine());
+
+void ChristmasTree(int num)
+{
+    if(num < 1)
+    {
+        Console.Write("Неверная высота, укажите число больше 0");
+    }
+    else
+    {
+        string s = "*";
+        int whitespace = num - 1;    // Количество пробелов перед звездочкой
+        string spasce = String.Empty; 
+
+        // Напечатаем первую строку, соединив 2 строки: пробелы + звездочки
+        for(int j = whitespace; j > 0; j--)
+            {
+                spasce += " "; 
+            }
+            whitespace -= 1;
+        Console.WriteLine(spasce + s);
+
+        // Напечатаем все остальные строки, прибавляя к каждой следующей 2** и отнимая 1 пробел перед ними
+        for(int i = 2; i <= num; i++)
+        {
+            s += "**";
+            string white = String.Empty; 
+            for(int j = whitespace; j > 0; j--)
+            {
+                white += " "; 
+            }
+            whitespace -= 1;
+            Console.WriteLine(white + s);
+        }
+    }
+}
+
+ChristmasTree(number);

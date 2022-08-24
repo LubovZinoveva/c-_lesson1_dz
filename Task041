@@ -1,0 +1,19 @@
+// Пользователь вводит с клавиатуры М чисел. Посчитайте, сколько чисел больше 0 ввел пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// -1, -7, 567, 89, 223 -> 3
+
+Console.Write("Введите количество чисел: ");
+int n = int.Parse(Console.ReadLine());
+
+int PositivNum(int count)
+{
+    int result = 0;
+    for(int i = 0; i < count; i++)
+    {
+        int num = int.Parse(Console.ReadLine());
+        if(num > 0) result ++;
+    }
+    return result;
+}
+
+Console.WriteLine($"Больше нуля {PositivNum(n)} числа");

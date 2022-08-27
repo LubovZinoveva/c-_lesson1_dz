@@ -1,0 +1,95 @@
+/* Напишите программу, котораяреализует обход введенного двумерного массива, 
+начиная с крайнего нижнего левого элемента против часовой стрелки.
+123
+456 -> 7 8 9 6 3 2 1 4 5
+789
+*/
+
+// Вероятно, можно и короче, возможно, с помощью рекурсии + записать результат в массив, а не в строку.
+// Но пока только вот так сообразила. Для одного массива 3х3, конечно, все проще было бы, 
+// а чтобы более универсально получилось, выходит громоздко
+
+int[,] GetArray(int row, int col)
+{
+    int[,] array = new int[row, col];
+    Console.WriteLine("Заполните массив числами:");
+    for(int i = 0; i < row; i++)
+    {
+        for(int j = 0; j < col; j++)
+        {
+            array[i, j] = int.Parse(Console.ReadLine());
+        }
+    }
+    return array;
+}
+
+// Проходим 4 стороны по контуру, потом повторяем, углубляясь внутрь, уменьшая по 1 строке/столбцу
+// Если количество строк или столбцов нечетное, то в серединке остается нетронутая вертикаль/горизонталь
+// Вычисляя какая сторона матрицы короче и проверяя на четность, находим последнюю недостоющую вертикаль/горизонталь  
+string RoundArray(int[,] arr)
+{
+    string result = "";
+    int count = 0;
+    int end = arr.GetLength(0)/2;
+    bool side = true;
+    if(arr.GetLength(1) < arr.GetLength(0)) 
+    {
+        end = arr.GetLength(1)/2;
+        side = false;
+    }
+    int isParity = 0;
+    if(end % 2 == 1) isParity = 1;
+
+    //тут идем по 4 сторанам, углубляясь внутрь
+    while(end > 0)
+    {
+        for(int i = 0 + count; i < arr.GetLength(1) - count; i++)
+        {
+            result += Convert.ToString(arr[arr.GetLength(0) - 1 - count, i]) + " ";
+        }
+        for(int i = arr.GetLength(0) - 2 - count; i >= 0 + count; i--)
+        {
+            result += Convert.ToString(arr[i, arr.GetLength(1) - 1 - count]) + " ";
+        }
+        for(int i = arr.GetLength(1) - 2 - count; i >= 0 + count; i--)
+        {
+            result += Convert.ToString(arr[0 + count, i]) + " ";
+        }
+        for(int i = 1 + count; i < arr.GetLength(0) - 1 - count; i++)
+        {
+            result += Convert.ToString(arr[i, 0 + count]) + " ";
+        }
+        count++;
+        end--;
+    }
+
+    // тут проверяем на четность и в зависимости от того, какая сторона короче
+    // (сколько прямоугольников прошли в массиве), вычисляем недостающие числа
+    if (isParity == 1)
+    {
+        if(side == true)
+        {
+            for(int i = arr.GetLength(0) / 2; i < arr.GetLength(1) - arr.GetLength(0) / 2; i++)
+            {
+                result += arr[arr.GetLength(0) / 2, i] + " ";
+            }
+        }
+        else 
+        {
+            for(int i = arr.GetLength(0) - arr.GetLength(1) / 2 - 1; i >= arr.GetLength(1) / 2; i--)
+            {
+                result += arr[i, arr.GetLength(1) / 2] + " ";
+            }
+        }
+    }
+    return result;
+}
+
+Console.WriteLine("Введите количество строк и столбцов:");
+int rows = int.Parse(Console.ReadLine());
+int column = int.Parse(Console.ReadLine());
+
+int [,] myArray = GetArray(rows, column);
+Console.WriteLine($"{RoundArray(myArray)}");
+
+

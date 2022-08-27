@@ -1,0 +1,42 @@
+/* Задайте двумерный массив размером m x n, заполненный случайными вещественными числами.
+    m = 3, n = 4.
+    0,5 7 -2 -0,2
+    1 -3,3 8 -9,9
+    8 7,8 -7,1 9
+*/
+
+Console.Write("m = ");
+int m = int.Parse(Console.ReadLine());
+Console.Write("n = ");
+int n = int.Parse(Console.ReadLine());
+
+double[,] GetArray(int row, int column)
+{
+    double[,] result = new double[row, column];
+    int minValue = - 100;
+    int maxValue = 101;
+    for(int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < column; j++)
+        {
+             result[i, j] = new Random().Next(minValue, maxValue);
+             result[i, j] = result[i,j] / 10;
+        }
+    }
+    return result;
+}
+
+void PrintArray(double[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+double[,] myArray = GetArray(m, n);
+PrintArray(myArray);

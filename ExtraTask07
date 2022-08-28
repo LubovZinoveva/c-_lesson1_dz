@@ -1,0 +1,50 @@
+/* Написать программу для перевода римских чисел в десятичные арабские.
+III -> 3
+LVIII -> 58
+MCMXCIV -> 1994
+*/
+
+Console.Write("Введите число: ");
+string romanNumber = Console.ReadLine();
+
+int RomanToArabic(string roman)
+{
+    int arabic = 0;
+    int lastNumber = 0;
+    int newNumber = 0;
+    for(int i = 0; i < roman.Length; i++)
+    {
+        switch(roman[i])
+        {
+            case 'I':
+                newNumber = 1;
+                break;
+            case 'V':
+                newNumber = 5;
+                break;
+            case 'X':
+                newNumber = 10;
+                break;
+            case 'L':
+                newNumber = 50;
+                break;
+            case 'C':
+                newNumber = 100;
+                break;
+            case 'D':
+                newNumber = 500;
+                break;
+            case 'M':
+                newNumber = 1000;
+                break;
+        }
+        
+        if(lastNumber >= newNumber) arabic += newNumber;
+        else arabic += newNumber - 2 * lastNumber;
+        lastNumber = newNumber;
+    }
+    return arabic;
+}
+
+Console.WriteLine($"{RomanToArabic(romanNumber)}");
+

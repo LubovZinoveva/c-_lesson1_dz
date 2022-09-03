@@ -1,0 +1,66 @@
+/* Пользователь вводит скобочные последовательности. В последовательности могут встретиться скобки вида: 
+{}, (), [].
+Правильная скобочная последовательность - символьная последовательность, составленная в алфавите, 
+состоящем из символов, сгруппированных в упорядоченные пары.
+Пример правильной скобочной последовательности: (), ()[]{}
+Пример неправильной: (], ({)}
+Написать программу, которая определяет правильная ли скобочная последовательность была введена
+*/
+
+void RightBracketStack(String bracket)
+{
+    Stack<char> bracketStack = new Stack<char>(bracket.Length);
+    for (int i = 0; i < bracket.Length; i++)
+    {
+        bracketStack.Push(bracket[i]);
+    }
+
+    while (bracketStack.Count > 0)
+    {
+        char char1 = bracketStack.Pop();
+        char char2 = bracketStack.Pop();
+
+        if (char1 == '}' || char1 == ']' || char1 == ')')
+        {
+            if (char1 == '}')
+            {
+                if (char2 != '{')
+                {
+                    Console.WriteLine("Не правильная2");
+                    break;
+                }
+            }
+            else if (char1 == ']')
+            {
+                if (char2 != '[')
+                {
+                    Console.WriteLine("Не правильная3");
+                    break;
+                }
+            }
+            else if (char1 == ')')
+            {
+                if (char2 != '(')
+                {
+                    Console.WriteLine("Не правильная4");
+                    break;
+                }
+            }
+
+            if (bracketStack.Count == 0)
+            {
+                Console.WriteLine("Правильная");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Не правильная1");
+            break;
+        }
+    }
+}
+
+Console.Write("Введите скобочную последовательность: ");
+string simbols = Console.ReadLine();
+if (simbols.Length % 2 != 0) Console.WriteLine("У каждой скобки должна быть пара");
+else RightBracketStack(simbols);

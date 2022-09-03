@@ -1,0 +1,106 @@
+/* Напишите программу, которая заполнит спирально массив 4 на 4.
+Например, на выходе получается вот такой массив:
+01 02 03 04
+12 13 14 05
+11 16 15 06
+10 09 08 07
+*/
+
+Console.Write("Размер массива n = ");
+int n = int.Parse(Console.ReadLine());
+
+int[,] GetSpiralMatrix(int size)
+{
+    int number = 1;
+    int[,] result = new int[size, size];
+    int countOfSquare = size/2;
+
+    for(int i = 0; i < countOfSquare; i++)
+    {
+        for(int j = i; j < size - i; j++)
+        {
+            result[i, j] = number;
+            number ++;
+        }
+        for(int j = i + 1; j < size - i; j++)
+        {
+            result[j, size - i - 1] = number;
+            number ++;
+        }
+        for(int j = size - i - 2; j >= 0 + i; j--)
+        {
+            result[size - i - 1, j] = number;
+            number ++;
+        }
+        for(int j = size - i - 2; j > 0 + i; j--)
+        {
+            result[j, i] = number;
+            number ++;
+        }
+    }
+
+    if(size % 2 != 0)
+    {
+        result[countOfSquare, countOfSquare] = number;
+    }
+    return result;
+}
+
+string[,] ConvertToStringArray(int[,] array)
+{
+    string[,] result = new string[array.GetLength(0), array.GetLength(1)];
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            result[i, j] = Convert.ToString(array[i, j]);
+        }
+    }
+    return result;
+}
+
+void PrintArray(int[,] array)
+{
+    string[,] stringArray = ConvertToStringArray(array);
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {   
+            switch (stringArray[i, j])
+            {
+                case "1":
+                    stringArray[i, j] = "01";
+                    break;
+                case "2":
+                    stringArray[i, j] = "02";
+                    break;
+                case "3":
+                    stringArray[i, j] = "03";
+                    break;
+                case "4":
+                    stringArray[i, j] = "04";
+                    break;
+                case "5":
+                    stringArray[i, j] = "05";
+                    break;
+                case "6":
+                    stringArray[i, j] = "06";
+                    break;
+                case "7":
+                    stringArray[i, j] = "07";
+                    break;
+                case "8":
+                    stringArray[i, j] = "08";
+                    break; 
+                case "9":
+                    stringArray[i, j] = "09";
+                    break;       
+            }
+            Console.Write($"{stringArray[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] matrix = GetSpiralMatrix(n);
+PrintArray(matrix);

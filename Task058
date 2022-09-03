@@ -1,0 +1,84 @@
+/* Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18
+*/
+
+// Задайте двумерный массив. Напишите программу, которая поменяет местами первую
+// и последнюю строку массива
+
+Console.WriteLine("Введите количество строк и столбцов в 1, а затем во 2 массиве");
+Console.Write("m = ");
+int m = int.Parse(Console.ReadLine());
+Console.Write("n = ");
+int n = int.Parse(Console.ReadLine());
+Console.Write("l = ");
+int l = int.Parse(Console.ReadLine());
+Console.Write("k = ");
+int k = int.Parse(Console.ReadLine());
+
+int[,] GetArray(int m, int n, int minValue, int maxValue)
+{
+    int[,] result = new int[m, n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            result[i, j] = new Random().Next(minValue, maxValue);
+        }
+    }
+    return result;
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] MatrixМultiplication(int[,] array1, int[,] array2)
+{
+    int[,] result = new int[array1.GetLength(0), array2.GetLength(1)];
+    for (int i = 0; i < array1.GetLength(0); i++)
+    {
+        for (int j = 0; j < array2.GetLength(1); j++)
+        {
+            for (int k = 0; k < array2.GetLength(0); k++)
+            {
+                result[i, j] += array1[i, k] * array2[k, j];
+            }
+        }
+    }
+    return result;
+}
+
+int[,] myArray1 = GetArray(m, n, 0, 10);
+int[,] myArray2 = GetArray(l, k, 0, 10);
+int[,] multiplicationArray = new int[myArray1.GetLength(0), myArray2.GetLength(1)];
+
+
+if (myArray1.GetLength(1) != myArray2.GetLength(0))
+{
+    Console.WriteLine("Ошибка, введите количество столбцов первого массива = количеству строк второго");
+}
+else
+{
+    multiplicationArray = MatrixМultiplication(myArray1, myArray2);
+
+    PrintArray(myArray1);
+    Console.WriteLine();
+    PrintArray(myArray2);
+    Console.WriteLine();
+    PrintArray(multiplicationArray);
+}
+
+

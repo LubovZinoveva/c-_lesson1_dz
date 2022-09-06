@@ -1,0 +1,19 @@
+/* Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов
+в промежутке от M до N.
+M = 1; N = 15 -> 120
+M = 4; N = 8. -> 30
+*/
+
+int GetSumElements(int min, int stop)
+{
+    return stop == 0 ? min : min += GetSumElements(min + 1, stop - 1);
+}
+
+Console.Write("M = ");
+int M = int.Parse(Console.ReadLine());
+Console.Write("N = ");
+int N = int.Parse(Console.ReadLine());
+
+int count = N - M;
+if(count < 0) Console.WriteLine("Ошибка, N должно быть больше M");
+else Console.WriteLine(GetSumElements(M, count));
